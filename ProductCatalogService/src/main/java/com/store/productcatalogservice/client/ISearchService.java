@@ -1,7 +1,7 @@
-package com.example.productcatalogservice.client;
+package com.store.productcatalogservice.client;
 
-import com.example.productcatalogservice.dtos.SortParam;
-import com.example.productcatalogservice.models.Product;
+import com.store.productcatalogservice.dtos.SortParam;
+import com.store.productcatalogservice.models.Product;
 import jakarta.annotation.Nullable;
 import org.springframework.data.domain.Page;
 

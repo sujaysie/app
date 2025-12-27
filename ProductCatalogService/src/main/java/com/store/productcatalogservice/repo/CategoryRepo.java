@@ -1,7 +1,7 @@
-package com.example.productcatalogservice.repo;
+package com.store.productcatalogservice.repo;
 
-import com.example.productcatalogservice.models.Category;
-import com.example.productcatalogservice.models.Product;
+import com.store.productcatalogservice.models.Category;
+import com.store.productcatalogservice.models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

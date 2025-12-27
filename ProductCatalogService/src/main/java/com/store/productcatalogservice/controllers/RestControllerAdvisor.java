@@ -1,6 +1,6 @@
-package com.example.productcatalogservice.controllers;
+package com.store.productcatalogservice.controllers;
 
-import com.example.productcatalogservice.exceptions.NoProductAvailable;
+import com.store.productcatalogservice.exceptions.NoProductAvailable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

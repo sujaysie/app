@@ -1,8 +1,9 @@
 package com.example.productcatalogservice.controllers;
 
-import com.example.productcatalogservice.exceptions.NoProductAvailable;
-import com.example.productcatalogservice.models.Product;
-import com.example.productcatalogservice.client.IProductService;
+import com.store.productcatalogservice.controllers.ProductController;
+import com.store.productcatalogservice.exceptions.NoProductAvailable;
+import com.store.productcatalogservice.models.Product;
+import com.store.productcatalogservice.client.IProductService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,9 @@
-package com.example.productcatalogservice.services;
+package com.store.productcatalogservice.services;
 
-import com.example.productcatalogservice.client.IProductService;
-import com.example.productcatalogservice.exceptions.NoProductAvailable;
-import com.example.productcatalogservice.models.Product;
-import com.example.productcatalogservice.repo.ProductRepo;
+import com.store.productcatalogservice.client.IProductService;
+import com.store.productcatalogservice.exceptions.NoProductAvailable;
+import com.store.productcatalogservice.models.Product;
+import com.store.productcatalogservice.repo.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

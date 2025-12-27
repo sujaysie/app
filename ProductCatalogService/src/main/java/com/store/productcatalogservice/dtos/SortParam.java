@@ -1,4 +1,4 @@
-package com.example.productcatalogservice.dtos;
+package com.store.productcatalogservice.dtos;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,5 +7,5 @@ import lombok.Setter;
 @Getter
 public class SortParam {
     private String attribute;
-    private SortType sortType;
+    private com.store.productcatalogservice.dtos.SortType sortType;
 }

@@ -1,6 +1,5 @@
-package com.example.productcatalogservice.dtos;
+package com.store.productcatalogservice.dtos;
 
-import com.example.productcatalogservice.models.Category;
 import lombok.Data;
 
 @Data

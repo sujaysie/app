@@ -1,10 +1,10 @@
-package com.example.productcatalogservice.controllers;
+package com.store.productcatalogservice.controllers;
 
-import com.example.productcatalogservice.dtos.CategoryDto;
-import com.example.productcatalogservice.dtos.ProductDto;
-import com.example.productcatalogservice.exceptions.NoProductAvailable;
-import com.example.productcatalogservice.models.Product;
-import com.example.productcatalogservice.client.IProductService;
+import com.store.productcatalogservice.dtos.CategoryDto;
+import com.store.productcatalogservice.dtos.ProductDto;
+import com.store.productcatalogservice.exceptions.NoProductAvailable;
+import com.store.productcatalogservice.models.Product;
+import com.store.productcatalogservice.client.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

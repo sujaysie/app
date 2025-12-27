@@ -1,6 +1,6 @@
-package com.example.productcatalogservice.repo;
+package com.store.productcatalogservice.repo;
 
-import com.example.productcatalogservice.models.Product;
+import com.store.productcatalogservice.models.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

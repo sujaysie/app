@@ -1,7 +1,7 @@
-package com.example.productcatalogservice.client;
+package com.store.productcatalogservice.client;
 
-import com.example.productcatalogservice.exceptions.NoProductAvailable;
-import com.example.productcatalogservice.models.Product;
+import com.store.productcatalogservice.exceptions.NoProductAvailable;
+import com.store.productcatalogservice.models.Product;
 
 import java.util.List;
 

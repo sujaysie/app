@@ -1,4 +1,4 @@
-package com.example.productcatalogservice.exceptions;
+package com.store.productcatalogservice.exceptions;
 
 public class NoProductAvailable extends Exception {
     public NoProductAvailable() {

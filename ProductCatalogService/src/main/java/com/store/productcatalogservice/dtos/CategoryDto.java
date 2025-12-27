@@ -1,4 +1,4 @@
-package com.example.productcatalogservice.dtos;
+package com.store.productcatalogservice.dtos;
 
 import lombok.Builder;
 import lombok.Data;

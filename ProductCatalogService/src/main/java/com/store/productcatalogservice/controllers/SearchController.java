@@ -1,8 +1,8 @@
-package com.example.productcatalogservice.controllers;
+package com.store.productcatalogservice.controllers;
 
-import com.example.productcatalogservice.dtos.SearchRequestDto;
-import com.example.productcatalogservice.models.Product;
-import com.example.productcatalogservice.client.ISearchService;
+import com.store.productcatalogservice.dtos.SearchRequestDto;
+import com.store.productcatalogservice.models.Product;
+import com.store.productcatalogservice.client.ISearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.PostMapping;

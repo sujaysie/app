@@ -1,8 +1,8 @@
-package com.example.productcatalogservice.util;
+package com.store.productcatalogservice.util;
 
-import com.example.productcatalogservice.dtos.CategoryDto;
-import com.example.productcatalogservice.dtos.ProductDto;
-import com.example.productcatalogservice.models.Product;
+import com.store.productcatalogservice.dtos.CategoryDto;
+import com.store.productcatalogservice.dtos.ProductDto;
+import com.store.productcatalogservice.models.Product;
 
 public class ProductUtil {
     public static ProductDto from(Product product) {

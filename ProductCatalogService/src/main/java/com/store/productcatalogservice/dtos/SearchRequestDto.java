@@ -1,4 +1,4 @@
-package com.example.productcatalogservice.dtos;
+package com.store.productcatalogservice.dtos;
 
 import jakarta.annotation.Nullable;
 import lombok.Getter;
@@ -14,5 +14,5 @@ public class SearchRequestDto {
     private int pageNumber;
     private int pageSize;
     @Nullable
-    private List<SortParam> sortParam;
+    private List<com.store.productcatalogservice.dtos.SortParam> sortParam;
 }

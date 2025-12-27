@@ -1,4 +1,4 @@
-package com.example.productcatalogservice.models;
+package com.store.productcatalogservice.models;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;

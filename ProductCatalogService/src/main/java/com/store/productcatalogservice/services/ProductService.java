@@ -1,10 +1,10 @@
-package com.example.productcatalogservice.services;
+package com.store.productcatalogservice.services;
 
-import com.example.productcatalogservice.client.IProductService;
-import com.example.productcatalogservice.dtos.FakestoreProductDto;
-import com.example.productcatalogservice.exceptions.NoProductAvailable;
-import com.example.productcatalogservice.models.Category;
-import com.example.productcatalogservice.models.Product;
+import com.store.productcatalogservice.client.IProductService;
+import com.store.productcatalogservice.dtos.FakestoreProductDto;
+import com.store.productcatalogservice.exceptions.NoProductAvailable;
+import com.store.productcatalogservice.models.Category;
+import com.store.productcatalogservice.models.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

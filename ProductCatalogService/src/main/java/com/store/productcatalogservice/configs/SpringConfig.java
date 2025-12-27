@@ -1,4 +1,4 @@
-package com.example.productcatalogservice.configs;
+package com.store.productcatalogservice.configs;
 
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.web.client.RestTemplateBuilder;
