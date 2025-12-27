@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: ProductCatalogService
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/productcatalog
+    username: root
+    password: MySql!@#123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      port: 6379
+      host: localhost
+
+third:
+  party:
+    api: https://fakestoreapi.com
+
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
