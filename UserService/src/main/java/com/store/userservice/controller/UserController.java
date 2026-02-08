@@ -1,7 +1,7 @@
 package com.store.userservice.controller;
 
-import com.store.userservice.model.User;
-import com.store.userservice.repository.UserRepository;
+import com.store.userservice.models.User;
+import com.store.userservice.repo.UserRepository;
 import java.util.Map;
 import java.util.Optional;
 import org.springframework.http.HttpStatus;

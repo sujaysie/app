@@ -1,9 +1,9 @@
 package com.store.userservice.services;
 
 import com.store.userservice.dtos.SignupRequest;
+import com.store.userservice.models.User;
 import com.store.userservice.models.AuthProvider;
 import com.store.userservice.models.Role;
-import com.store.userservice.models.User;
 import com.store.userservice.repo.RoleRepository;
 import com.store.userservice.repo.UserRepository;
 import java.util.Collections;
