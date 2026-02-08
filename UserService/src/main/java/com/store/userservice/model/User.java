@@ -31,6 +31,9 @@ public class User {
     @Column(name = "provider_id")
     private String providerId;
 
+    @Column(name = "password_hash")
+    private String password;
+
     public Long getId() {
         return id;
     }
@@ -85,5 +88,13 @@ public class User {
 
     public void setProviderId(String providerId) {
         this.providerId = providerId;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
