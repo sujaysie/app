@@ -15,8 +15,8 @@ spring:
       client:
         registration:
           google:
-            client-id: ${GOOGLE_CLIENT_ID:92157685750-lb80ssfhmq34cf7qnv461mlsfb08mn8v.apps.googleusercontent.com}
-            client-secret: ${GOOGLE_CLIENT_SECRET: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}
+            client-id: ${GOOGLE_CLIENT_ID:change-me-client-id}
+            client-secret: ${GOOGLE_CLIENT_SECRET:change-me-client-secret}
             scope:
               - openid
               - profile
@@ -26,3 +26,10 @@ spring:
             issuer-uri: https://accounts.google.com
 server:
   port: 8082
+
+auth:
+  jwt:
+    issuer: user-service
+    audience: store-services
+    access-token-ttl-seconds: 900
+    refresh-token-ttl-seconds: 604800

@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ApiGateway
+  cloud:
+    gateway:
+      routes:
+        - id: userservice-auth
+          uri: ${USER_SERVICE_URI:http://localhost:8082}
+          predicates:
+            - Path=/auth/**,/.well-known/jwks.json,/me,/health,/status
+        - id: product-catalog
+          uri: ${PRODUCT_SERVICE_URI:http://localhost:8083}
+          predicates:
+            - Path=/products/**,/search/**
+        - id: payment-service
+          uri: ${PAYMENT_SERVICE_URI:http://localhost:8585}
+          predicates:
+            - Path=/payment/**,/webhook/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${USER_SERVICE_JWK_SET_URI:http://localhost:8082/.well-known/jwks.json}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

@@ -6,8 +6,9 @@ import java.util.Map;
 import java.util.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,11 +21,16 @@ public class UserController {
     }
 
     @GetMapping("/me")
-    public ResponseEntity<User> me(@AuthenticationPrincipal OAuth2User principal) {
-        if (principal == null) {
+    public ResponseEntity<User> me(Authentication authentication) {
+        if (authentication == null || authentication.getPrincipal() == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-        String email = principal.getAttribute("email");
+
+        String email = extractEmail(authentication.getPrincipal());
+        if (email == null || email.isBlank()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
         Optional<User> user = userRepository.findByEmail(email);
         return user.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
@@ -38,5 +44,15 @@ public class UserController {
     @GetMapping("/status")
     public Map<String, String> status() {
         return Map.of("status", "ok");
+    }
+
+    private String extractEmail(Object principal) {
+        if (principal instanceof OAuth2User oauth2User) {
+            return oauth2User.getAttribute("email");
+        }
+        if (principal instanceof Jwt jwt) {
+            return jwt.getClaimAsString("email");
+        }
+        return null;
     }
 }
