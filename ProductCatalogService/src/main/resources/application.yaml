@@ -14,6 +14,14 @@ spring:
     redis:
       port: 6379
       host: localhost
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${USER_SERVICE_JWK_SET_URI:http://localhost:8082/.well-known/jwks.json}
+
+server:
+  port: 8083
 
 third:
   party:
