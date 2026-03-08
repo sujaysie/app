@@ -6,12 +6,16 @@ import com.store.userservice.models.AuthProvider;
 import com.store.userservice.models.Role;
 import com.store.userservice.repo.RoleRepository;
 import com.store.userservice.repo.UserRepository;
+
 import java.util.Collections;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Slf4j
 public class UserAccountService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
@@ -42,5 +46,19 @@ public class UserAccountService {
         user.setRoles(Collections.singleton(userRole));
 
         return userRepository.save(user);
+    }
+    @Transactional
+    public User changeRole(Long userId,String role) {
+        var user = userRepository.findById(userId).orElseThrow();
+        if (user.getRoles().stream().anyMatch(r -> r.getName().equals(role))) {
+            log.warn("User already is {}, no change made", role);
+            return null;
+        }
+        var userFromDb = userRepository.findById(user.getId()).get();
+        var roles = userFromDb.getRoles();
+        roles.add(new Role(role));
+        userFromDb.setRoles(roles);
+        userRepository.save(userFromDb);
+        return userFromDb;
     }
 }

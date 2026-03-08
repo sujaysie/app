@@ -1,9 +1,6 @@
 package com.store.userservice.models;
 
-import com.store.userservice.models.AuthProvider;
-import com.store.userservice.models.Role;
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

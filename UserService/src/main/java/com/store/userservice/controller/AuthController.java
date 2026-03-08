@@ -1,21 +1,17 @@
 package com.store.userservice.controller;
 
-import com.store.userservice.dtos.AuthResponse;
-import com.store.userservice.dtos.LoginRequest;
-import com.store.userservice.dtos.RefreshTokenRequest;
-import com.store.userservice.dtos.SignupRequest;
-import com.store.userservice.dtos.TokenResponse;
+import com.store.userservice.dtos.*;
 import com.store.userservice.models.User;
 import com.store.userservice.repo.UserRepository;
 import com.store.userservice.services.TokenIssuanceService;
 import com.store.userservice.services.UserAccountService;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -47,7 +43,19 @@ public class AuthController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new AuthResponse("User registered with email: " + user.getEmail()));
     }
-
+    @PatchMapping("/changeRole")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<UserDto> changeRole(@RequestBody ChangeRoleRequest changeRoleRequest){
+        var user = userAccountService.changeRole(changeRoleRequest.getUserId(),changeRoleRequest.getRole());
+        var userDto = new UserDto();
+        if(user == null){
+            userDto.setMessage("Unsuccessful");
+            return new ResponseEntity<>(userDto, HttpStatus.IM_USED);
+        }
+        userDto.setUsername(user.getName());
+        userDto.setRoles(user.getRoles().stream().toList());
+        return new ResponseEntity<>(userDto,HttpStatus.ACCEPTED);
+    }
     @PostMapping("/login")
     public ResponseEntity<TokenResponse> login(@RequestBody LoginRequest request) {
         return userRepository.findByEmail(request.getEmail())
